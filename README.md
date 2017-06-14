@@ -8,6 +8,6 @@ If a named export is added to components.js, the existing jest test fails becaus
 
 Run `yarn test` to see the passing test.
 
-Uncomment the line exporting `Foo` in components.js.
+Uncomment the line exporting `Bar` in components.js.
 
 Run `yarn test` again to see a failing test.
