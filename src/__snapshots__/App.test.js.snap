@@ -1,0 +1,6 @@
+exports[`test renders without crashing 1`] = `
+<div
+  className="sc-bdVaJa fmDBXD">
+  Hello
+</div>
+`;
