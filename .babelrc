@@ -1,0 +1,64 @@
+{
+	"presets": [
+		"latest",
+		"react",
+		"flow",
+		["env", {
+			"useBuiltIns": true,
+			"targets": {
+				"browsers": [
+					"last 2 versions",
+					"ie >= 10"
+				],
+			}
+			}]
+	],
+	"plugins": [[
+		"module-alias", [
+			{
+				"src": "./lib",
+				"expose": "~"
+			}
+		]],
+		"transform-class-properties",
+		"transform-object-rest-spread",
+		"transform-export-extensions", [
+			"babel-plugin-transform-regenerator", {
+				// Async functions are converted to generators by babel-preset-latest
+				"async": false
+			}
+		], [
+			"transform-runtime", {
+				"polyfill": false
+		}]
+	],
+	"env": {
+		"development": {
+			"plugins": [[
+				"styled-components-named",
+				"react-transform", {
+					"transforms": [{
+						"transform": "react-transform-hmr",
+						"imports": ["react"],
+						"locals": ["module"]
+					}, {
+						"transform": "react-transform-catch-errors",
+						"imports": ["react", "redbox-react"]
+					}]
+				}
+			]]
+		},
+		"i18n": {
+			"plugins": [[
+				"react-intl", {
+					"messagesDir": "./build/messages"
+				}
+			]]
+		},
+		"production": {
+			"plugins": [
+				"transform-react-remove-prop-types"
+			]
+		}
+	}
+}
